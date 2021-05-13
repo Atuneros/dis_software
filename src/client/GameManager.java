@@ -5,11 +5,20 @@ import java.util.Scanner;
 public class GameManager {
 	public void start() {
 		Character c1 = new Character();
-		set_character(c1);
-		c1.get_attributes();
+		setCharacter(c1);
+		c1.getAttributes();
+		
+		c1.receiveDamage(10);
+		c1.getAttributes();
+		c1.receiveDamage(10);
+		c1.getAttributes();
+		c1.receiveDamage(10);
+		c1.getAttributes();
+		c1.receiveDamage(60);
+		c1.getAttributes();
 	}
 	
-	private void set_character(Character c) {
+	private void setCharacter(Character c) {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
@@ -18,6 +27,6 @@ public class GameManager {
 		System.out.println("2. Mago");
 		System.out.println("3. Cazador");
 		
-		c.set_character_class(sc.nextInt());
+		c.setCharacterClass(sc.nextInt());
 	}
 }
