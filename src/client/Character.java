@@ -48,17 +48,36 @@ public class Character {
 		System.out.println("\nDefenses: " + this.defense);
 	}
 	
+	public int getHP() {
+		return this.total_hp;
+	}
+	
+	protected void setHP(int n) {
+		this.hp = n;
+	}
+	
+	public int getCurrentHP() {
+		return this.hp;
+	}
+	
+	public int getAttackPower() {
+		return this.attack.get_attack_value();
+	}
+	
+	public int getDefenses() {
+		return this.defense;
+	}
+	
 	protected void receiveDamage(int dmg) {
-		this.hp = this.hp - dmg;
+		this.setHP(dmg);
 		
-		if(status.getStatus() == 0) {
+		if(this.hp < this.total_hp/2 && status.getStatus() == 0) {
 			status.nextState();
-			improveDefenseStat();
+			this.improveDefenseStat();
+			System.out.println("ESTÁS HERIDO Y TU DEFENSA HA AUMENTADO PERMANENTEMENTE");
 		}else if(this.hp <= 0) {
 			status.nextState();
 		}
-		
-		System.out.println(status.getStatus());
 	}
 	
 	protected void receiveHeal(int heal) {
@@ -69,6 +88,6 @@ public class Character {
 	}
 	
 	private void improveDefenseStat() {
-		this.defense = 20;
+		this.defense = 5;
 	}
 }

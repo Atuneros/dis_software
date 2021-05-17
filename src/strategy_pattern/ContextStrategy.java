@@ -7,7 +7,7 @@ public class ContextStrategy {
 		this.algorithm = algorithm;
 	}
 	
-	public void executeStrategy() {
-		algorithm.estrategiaARealizar();
+	public int setStrategy() {
+		return algorithm.implementStrategy();
 	}
 }
